@@ -33,23 +33,9 @@ class Mailhelper(object):
             return False
 
 if __name__ == '__main__':
-    productList = []
-    productInfo = {
-        'name': '大数据丛书：数据可视化',
-        'price': 50.20,
-        'time': time.time(),
-        'url': 'http://item.jd.com/11349429.html'
-    }
-    productList.append(productInfo)
-    # print '《%s》降价啦~现价为:%fRMB'%(
-    #     productList[0]['name'],
-    #     productList[0]['price'])
-    # print str(productList[0]['price']),type(productList[0]['name'])
-    name = 20.11
-    print type(name),str(name)
     mailto_list=['hexianjie1995@qq.com'] #此处填写接收邮件的邮箱
-    title = u"测试~"
-    content = '《'+productList[0]['name']+'》'+' 降价啦~现价为:'+str(productList[0]['price'])
+    title = "标题~"
+    content = '内容'
     mail = Mailhelper(mailto_list)
     if mail.send_mail(title,content):
         print u"发送成功"

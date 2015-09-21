@@ -5,7 +5,7 @@ import sys
 import time
 import sqlite3
 import mail
-#不知道这里设置的是什么编码。系统shell？python？
+##设置系统shell编码，不设的话shell输出为乱码。
 reload(sys)
 sys.setdefaultencoding("utf-8")
 #获取页面源代码
@@ -92,7 +92,7 @@ if __name__ == '__main__':
     #对比历史最低价格并提取降价商品商品到列表 discountedProducts
     discountedProducts = []
     for each in productList:
-        print u'《%s》：%f'%(each['name'],each['price'])
+        print u'《%s》：%0.1f'%(each['name'],each['price'])
         minPrice = querryPrice(each)
         if each['price'] < minPrice:     #对比历史最低价格
             minusPrice = minPrice- each['price']
@@ -121,5 +121,8 @@ if __name__ == '__main__':
             print u"发送提醒邮件成功"
         else:
             print u"发送失败"
+
+
+
 
 
